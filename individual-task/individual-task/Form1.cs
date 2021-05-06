@@ -14,6 +14,9 @@ namespace individual_task
     {
         CEmblem b;
         int count = 0;
+
+        Pen penB = new Pen(Color.Black, 3);
+        Pen penW = new Pen(Color.White, 3);
         public Form1()
         {
 
@@ -25,12 +28,19 @@ namespace individual_task
             if (comboBox1.SelectedItem != null)
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
-
-                emblem.Hide();
-                emblem.Draw(pic);
-                emblem.MoveR();
-                emblem.Show();
-                emblem.Draw(pic);
+              
+                if (emblem.re)
+                {
+                    emblem.Draw(pic, penW);
+                    emblem.MoveR();
+                    emblem.Draw(pic, penB);
+                }
+                else
+                {
+                    emblem.RotateEmbleb(pic, penW);
+                    emblem.MoveR();
+                    emblem.RotateEmbleb(pic, penB);
+                }
             }
         }
 
@@ -45,12 +55,20 @@ namespace individual_task
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
 
-                emblem.Hide();
-                emblem.Draw(pic);
-                emblem.Enlarge();
-                emblem.Show();
-                emblem.Draw(pic);
+                if (emblem.re)
+                {
+                    emblem.Draw(pic, penW);
+                    emblem.Enlarge();
+                    emblem.Draw(pic, penB);
+                }
+                else
+                {
+                    emblem.RotateEmbleb(pic, penW);
+                    emblem.Enlarge();
+                    emblem.RotateEmbleb(pic, penB);
+                }
 
+           
             }
         }
 
@@ -72,8 +90,8 @@ namespace individual_task
             if (comboBox1.SelectedItem != null)
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
-                emblem.Show();
-                emblem.Draw(pic);
+                
+                emblem.Draw(pic,penB);
             }
 
         }
@@ -89,8 +107,17 @@ namespace individual_task
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
 
-                emblem.Hide();
-                emblem.Draw(pic);
+
+                if (emblem.re)
+                {
+                    emblem.Draw(pic, penW);
+                   
+                }
+                else
+                {
+                    emblem.RotateEmbleb(pic, penW);
+                   
+                }
 
             }
         }
@@ -101,11 +128,20 @@ namespace individual_task
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
 
-                emblem.Hide();
-                emblem.Draw(pic);
-                emblem.Reduce();
-                emblem.Show();
-                emblem.Draw(pic);
+              
+                if (emblem.re)
+                {
+                    emblem.Draw(pic, penW);
+                    emblem.Reduce();
+                    emblem.Draw(pic, penB);
+                }
+                else
+                {
+                    emblem.RotateEmbleb(pic, penW);
+                    emblem.Reduce();
+                    emblem.RotateEmbleb(pic, penB);
+                }
+
             }
         }
 
@@ -115,11 +151,18 @@ namespace individual_task
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
 
-                emblem.Hide();
-                emblem.Draw(pic);
-                emblem.EndUp();
-                emblem.Show();
-                emblem.Draw(pic);
+                if (emblem.re)
+                {
+                    emblem.Draw(pic, penW);
+                    emblem.EndUp();
+                    emblem.Draw(pic, penB);
+                }
+                else
+                {
+                    emblem.RotateEmbleb(pic, penW);
+                    emblem.EndUp();
+                    emblem.RotateEmbleb(pic, penB);
+                }
             }
         }
 
@@ -129,11 +172,25 @@ namespace individual_task
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
 
-                emblem.Hide();
-                emblem.Draw(pic);
+                emblem.Draw(pic, penW);
+                emblem.Draw(pic, penB);
                 emblem.EndDown();
                 emblem.Show();
-                emblem.Draw(pic);
+                emblem.Draw(pic, penB);
+
+
+                if (emblem.re)
+                {
+                    emblem.Draw(pic, penW);
+                    emblem.EndDown();
+                    emblem.Draw(pic, penB);
+                }
+                else
+                {
+                    emblem.RotateEmbleb(pic, penW);
+                    emblem.EndDown();
+                    emblem.RotateEmbleb(pic, penB);
+                }
             }
         }
 
@@ -143,11 +200,19 @@ namespace individual_task
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
 
-                emblem.Hide();
-                emblem.Draw(pic);
-                emblem.MoveL();
-                emblem.Show();
-                emblem.Draw(pic);
+                if(emblem.re)
+                {
+                    emblem.Draw(pic, penW);
+                    emblem.MoveL();
+                    emblem.Draw(pic, penB);
+                }
+                else
+                {
+                    emblem.RotateEmbleb(pic, penW);
+                    emblem.MoveL();
+                    emblem.RotateEmbleb(pic, penB);
+                }
+               
             }
         }
 
@@ -156,12 +221,19 @@ namespace individual_task
             if (comboBox1.SelectedItem != null)
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
-
-                emblem.Hide();
-                emblem.Draw(pic);
-                emblem.MoveDown();
-                emblem.Show();
-                emblem.Draw(pic);
+          
+                if (emblem.re)
+                {
+                    emblem.Draw(pic, penW);
+                    emblem.MoveDown();
+                    emblem.Draw(pic, penB);
+                }
+                else
+                {
+                    emblem.RotateEmbleb(pic, penW);
+                    emblem.MoveDown();
+                    emblem.RotateEmbleb(pic, penB);
+                }
             }
         }
 
@@ -171,11 +243,19 @@ namespace individual_task
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
 
-                emblem.Hide();
-                emblem.Draw(pic);
-                emblem.MoveUp();
-                emblem.Show();
-                emblem.Draw(pic);
+          
+                if (emblem.re)
+                {
+                    emblem.Draw(pic, penW);
+                    emblem.MoveUp();
+                    emblem.Draw(pic, penB);
+                }
+                else
+                {
+                    emblem.RotateEmbleb(pic, penW);
+                    emblem.MoveUp();
+                    emblem.RotateEmbleb(pic, penB);
+                }
             }
         }
 
@@ -184,12 +264,19 @@ namespace individual_task
             if (comboBox1.SelectedItem != null)
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
-
-                emblem.Hide();
-                emblem.Draw(pic);
-                emblem.EndRight();
-                emblem.Show();
-                emblem.Draw(pic);
+          
+                if (emblem.re)
+                {
+                    emblem.Draw(pic, penW);
+                    emblem.EndRight();
+                    emblem.Draw(pic, penB);
+                }
+                else
+                {
+                    emblem.RotateEmbleb(pic, penW);
+                    emblem.EndRight();
+                    emblem.RotateEmbleb(pic, penB);
+                }
             }
         }
 
@@ -198,12 +285,19 @@ namespace individual_task
             if (comboBox1.SelectedItem != null)
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
-
-                emblem.Hide();
-                emblem.Draw(pic);
-                emblem.EndLeft();
-                emblem.Show();
-                emblem.Draw(pic);
+           
+                if (emblem.re)
+                {
+                    emblem.Draw(pic, penW);
+                    emblem.EndLeft();
+                    emblem.Draw(pic, penB);
+                }
+                else
+                {
+                    emblem.RotateEmbleb(pic, penW);
+                    emblem.EndLeft();
+                    emblem.RotateEmbleb(pic, penB);
+                }
             }
         }
 
@@ -215,18 +309,14 @@ namespace individual_task
 
                 if(emblem.re)
                 {
-                    emblem.Hide();
-                    emblem.Draw(pic);
-
-                    emblem.Hide();
-                    emblem.Show();
-                    emblem.RotateEmbleb(pic);
+                    emblem.Draw(pic, penW);
+                    emblem.RotateEmbleb(pic,penB);
                 }
                 else
                 {
-                    emblem.Hide();
-                    emblem.Show();
-                    emblem.Draw(pic);
+                  
+                    emblem.RotateEmbleb(pic, penW);
+                    emblem.Draw(pic, penB);
                 }
 
                 
@@ -236,12 +326,7 @@ namespace individual_task
 
         private void button15_Click(object sender, EventArgs e)
         {
-            if (comboBox1.SelectedItem != null)
-            {
-                CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
-                emblem.Show();
-                emblem.RotateEmbleb(pic);
-            }
+           
         }
     }
 }

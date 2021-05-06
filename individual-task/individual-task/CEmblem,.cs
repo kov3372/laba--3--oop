@@ -35,10 +35,10 @@ namespace individual_task
         }
 
 
-        public void Draw(PictureBox b)
+        public void Draw(PictureBox b, Pen pen)
         {
             Graphics graphic = b.CreateGraphics();
-            pen.Color = col;
+           
             re = true;
 
             graphic.DrawEllipse(pen, new Rectangle(x, y, this.size, this.size));
@@ -53,10 +53,10 @@ namespace individual_task
                                                      new PointF(xOfromb, yOfromb + (this.size / 2) * (float)Math.Sqrt(2.0)) });
         }
 
-        public void RotateEmbleb(PictureBox b)
+        public void RotateEmbleb(PictureBox b, Pen pen)
         {
             Graphics graphic = b.CreateGraphics();
-            pen.Color = col;
+          
             re = false;
           
             int xOfromb = (this.size / 2 + this.x);
@@ -64,7 +64,9 @@ namespace individual_task
 
             graphic.DrawEllipse(pen, new Rectangle(x, y, this.size, this.size));
             graphic.DrawRectangle(pen, new Rectangle(x, y, size, size));
-            graphic.DrawRectangle(pen, new Rectangle(xOfromb - 29, yOfromb - 29, Convert.ToInt32(size / Math.Sqrt(2)), Convert.ToInt32(size / Math.Sqrt(2))));
+
+         //   graphic.DrawRectangle(pen, new Rectangle(xOfromb - 29, yOfromb - 29, Convert.ToInt32(size / Math.Sqrt(2)), Convert.ToInt32(size / Math.Sqrt(2))));
+            graphic.DrawRectangle(pen, new Rectangle(xOfromb - this.size / 3, yOfromb - this.size / 3, Convert.ToInt32(size / Math.Sqrt(2)), Convert.ToInt32(size / Math.Sqrt(2))));
 
          //   int sidOfBigKvafrat = this.size * 2;
          //   float sidOfSmall = this.size * 2 / (float)Math.Sqrt(2);
