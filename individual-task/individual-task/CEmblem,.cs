@@ -15,10 +15,14 @@ namespace individual_task
         public int size;
         public int count;
         public string s;
+        public bool re;
 
 
        static Color col = Color.Black;
         Pen pen = new Pen(col, 3);
+
+        Pen penB = new Pen(Color.Black, 3);
+        Pen penW = new Pen(Color.White, 3);
 
 
         public CEmblem(int x, int y ,string s, int size)
@@ -27,23 +31,46 @@ namespace individual_task
             this.y = y;
             this.s = s;
             this.size = size;
-                 
+            re = false;
         }
 
 
         public void Draw(PictureBox b)
         {
             Graphics graphic = b.CreateGraphics();
-
             pen.Color = col;
+            re = true;
 
             graphic.DrawEllipse(pen, new Rectangle(x, y, this.size, this.size));
 
             int xOfromb = (this.size / 2 + this.x);
             int yOfromb = (this.size / 2 + this.y);
 
-            graphic.DrawPolygon(pen, new Point[4] { new Point(xOfromb - this.size / 2, yOfromb), new Point(xOfromb, yOfromb - this.size / 2), new Point(xOfromb + this.size / 2, yOfromb), new Point(xOfromb, yOfromb + this.size / 2) });
-            graphic.DrawPolygon(pen, new PointF[4] { new PointF(xOfromb - (float)Math.Sqrt(2.0) * (this.size / 2), yOfromb), new PointF(xOfromb, yOfromb - (this.size / 2) * (float)Math.Sqrt(2.0)), new PointF(xOfromb + (this.size / 2) * (float)Math.Sqrt(2.0), yOfromb), new PointF(xOfromb, yOfromb + (this.size / 2) * (float)Math.Sqrt(2.0)) });
+            graphic.DrawPolygon(pen, new Point[4] { new Point(xOfromb - this.size / 2, yOfromb), new Point(xOfromb, yOfromb - this.size / 2), new Point(xOfromb + this.size / 2, yOfromb), new Point(xOfromb, yOfromb + this.size / 2) });         
+            graphic.DrawPolygon(pen, new PointF[4] { new PointF(xOfromb - (float)Math.Sqrt(2.0) * (this.size / 2), yOfromb), 
+                                                     new PointF(xOfromb, yOfromb - (this.size / 2) * (float)Math.Sqrt(2.0)), 
+                                                     new PointF(xOfromb + (this.size / 2) * (float)Math.Sqrt(2.0), yOfromb),
+                                                     new PointF(xOfromb, yOfromb + (this.size / 2) * (float)Math.Sqrt(2.0)) });
+        }
+
+        public void RotateEmbleb(PictureBox b)
+        {
+            Graphics graphic = b.CreateGraphics();
+            pen.Color = col;
+            re = false;
+          
+            int xOfromb = (this.size / 2 + this.x);
+            int yOfromb = (this.size / 2 + this.y);
+
+            graphic.DrawEllipse(pen, new Rectangle(x, y, this.size, this.size));
+            graphic.DrawRectangle(pen, new Rectangle(x, y, size, size));
+            graphic.DrawRectangle(pen, new Rectangle(xOfromb - 29, yOfromb - 29, Convert.ToInt32(size / Math.Sqrt(2)), Convert.ToInt32(size / Math.Sqrt(2))));
+
+         //   int sidOfBigKvafrat = this.size * 2;
+         //   float sidOfSmall = this.size * 2 / (float)Math.Sqrt(2);
+
+          
+
         }
 
 

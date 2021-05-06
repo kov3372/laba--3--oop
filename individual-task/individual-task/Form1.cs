@@ -16,7 +16,7 @@ namespace individual_task
         int count = 0;
         public Form1()
         {
-                                
+
             InitializeComponent();
         }
 
@@ -50,13 +50,13 @@ namespace individual_task
                 emblem.Enlarge();
                 emblem.Show();
                 emblem.Draw(pic);
-            
+
             }
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {            
-            CEmblem ob = new CEmblem(new Random().Next(0, 500), new Random().Next(0, 435), "эмблема" + " " + count, 80);                  
+        {
+            CEmblem ob = new CEmblem(new Random().Next(0, 500), new Random().Next(0, 435), "эмблема" + " " + count, 80);
             comboBox1.Items.Add(ob);
             count++;
 
@@ -88,7 +88,7 @@ namespace individual_task
             if (comboBox1.SelectedItem != null)
             {
                 CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
-                        
+
                 emblem.Hide();
                 emblem.Draw(pic);
 
@@ -204,6 +204,43 @@ namespace individual_task
                 emblem.EndLeft();
                 emblem.Show();
                 emblem.Draw(pic);
+            }
+        }
+
+        private void button10_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem != null)
+            {
+                CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
+
+                if(emblem.re)
+                {
+                    emblem.Hide();
+                    emblem.Draw(pic);
+
+                    emblem.Hide();
+                    emblem.Show();
+                    emblem.RotateEmbleb(pic);
+                }
+                else
+                {
+                    emblem.Hide();
+                    emblem.Show();
+                    emblem.Draw(pic);
+                }
+
+                
+              
+            }
+        }
+
+        private void button15_Click(object sender, EventArgs e)
+        {
+            if (comboBox1.SelectedItem != null)
+            {
+                CEmblem emblem = (CEmblem)comboBox1.SelectedItem;
+                emblem.Show();
+                emblem.RotateEmbleb(pic);
             }
         }
     }
